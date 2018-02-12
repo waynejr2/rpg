@@ -2,11 +2,7 @@
 var Dice = require('./Dice');
 var Combat = require('./Combat');
 
-//function Fight(mob1, mob2) {
 function Fight() {
-    //var mob1, mob2;
-    //this.mob1 = mob1;
-    //this.mob2 = mob2;
     var mobs;
     this.mobs = [];
 };
@@ -20,25 +16,14 @@ Fight.prototype.addMob = function(mob) {
     this.mobs.push(entry);
 };
 Fight.prototype.setMobTarget = function(mob, target) {
-    console.log("********************setMobTarget: " + arguments.length);
-    
     var args = Array.from(arguments);
     
-    var index = this.getMobIndexById(args.shift());
-    console.log("********************setMobTarget: " + args.length);
-    
+    var index = this.getMobIndexById(args.shift());   
     while (args.length) {
         if (index >= 0) {
             this.mobs[index][1].push(args.shift());
         }        
     }
-    //var index = this.getMobIndexById(mob);
-    /*
-    if (index >= 0) {
-        this.mobs[index][1].push(target);
-    }
-    */
-    //console.log(this.mobs[index][1].length);
 };
 Fight.prototype.isInFight = function(mob) {
     var result = false;
@@ -63,18 +48,6 @@ Fight.prototype.getTarget = function(mob) {
     var index = this.getMobIndexById(mob);
     return this.mobs[index][1][0];
 };
-/*Fight.prototype.getTarget = function(mob) {
-    var result = null;
-    var index = this.getMobIndexById(mob);
-    var targets = this.mobs[index][1];
-    for (var i = 0; i < targets.length; i++) {
-        if ( targets[i].isAlive()) {
-            result = targets[i];
-        }
-    }
-    return result;
-    //return this.mobs[index][1][0];
-};*/
 Fight.prototype.showFights = function() {
     for (var i = 0; i < this.mobs.length; i++) {
         var named = this.getNthMob(i).name;
@@ -82,15 +55,12 @@ Fight.prototype.showFights = function() {
         var output = "";
         output += "name: " + named + " has " + fights.length + " fights:";
         console.log(output);
-        //console.log("name: " + named + " has " + fights.length + " fights");
+
         for (var fight = 0; fight < fights.length; fight++) {
             var fightInfo = "      ";
             fightInfo += fights[fight].info();
             console.log(fightInfo);
-            //console.log(fights[fight].info());
-            //output += fights[fight].info();
         };
-        //console.log(output);
     };
 };
 Fight.prototype.getMobIndexById = function(mob) {
@@ -177,22 +147,6 @@ Fight.prototype.doit = function() {
         count++;
         
         console.log(Combat);
-        
-        //fight = false;
-        /*
-        this.mob1.damage(5);
-        this.mob2.damage(7);
-        
-        if (!this.mob1.isAlive()) {
-            fight = false;
-        }        
-        if (!this.mob2.isAlive()) {
-            fight = false;
-        }
-        
-        this.mob1.info();
-        this.mob2.info();
-        */
     };
     console.log("FIGHT IS OFF");
 };

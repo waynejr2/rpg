@@ -154,48 +154,16 @@ module.exports = (function () {
     
     console.log(f.getMobs());
     console.log(f.getMobIds());
-    /*
-    f.setMobTarget(bob, orc3, orc4, orc5);
-    f.setMobTarget(bob, orc6, orc7);
-    f.setMobTarget(bob, orc8);
-    */
     f.setMobTarget(bob, orc3, orc4, orc5, orc6, orc7, orc8);
-    /*
-    f.setMobTarget(bob, orc3);
-    f.setMobTarget(bob, orc4);
-    f.setMobTarget(bob, orc5);
-    f.setMobTarget(bob, orc6);
-    f.setMobTarget(bob, orc7);
-    f.setMobTarget(bob, orc8);
-    */
-    
     f.setMobTarget(steve, orc8, orc7, orc6, orc5, orc4, orc3);
-    /*
-    f.setMobTarget(steve, orc8);
-    f.setMobTarget(steve, orc7);
-    f.setMobTarget(steve, orc6);
-    f.setMobTarget(steve, orc5);
-    f.setMobTarget(steve, orc4);
-    f.setMobTarget(steve, orc3);
-    */
     
-    f.setMobTarget(orc3, bob);
-    f.setMobTarget(orc8, steve);
+    f.setMobTarget(orc3, bob, steve);
+    f.setMobTarget(orc4, bob, steve);
+    f.setMobTarget(orc5, bob, steve);
+    f.setMobTarget(orc6, steve, bob);
+    f.setMobTarget(orc7, steve, bob);
+    f.setMobTarget(orc8, steve, bob);
     
-    f.setMobTarget(orc4, bob);
-    f.setMobTarget(orc7, steve);
-    
-    f.setMobTarget(orc5, bob);
-    f.setMobTarget(orc6, steve);
-    
-    f.setMobTarget(orc8, bob);
-    f.setMobTarget(orc3, steve);
-    
-    f.setMobTarget(orc7, bob);
-    f.setMobTarget(orc4, steve);
-    
-    f.setMobTarget(orc6, bob);
-    f.setMobTarget(orc5, steve);
     
     console.log("orc5: " + f.isInFight(orc5));
     console.log("orc6: " + f.isInFight(orc6));
