@@ -1,22 +1,24 @@
 
 function Person(info) {
-    var id, name, health, weapon;
-    this.id = info.id;
-    this.name = info.name;
-    this.health = info.health;
-    this.weapon = info.weapon;
-    this.thac0 = info.thac0 || 20;
+    var ac, currentHealth, health, id, name, thac0, weapon;
     this.ac = info.ac || 10;
+    this.currentHealth = info.health;
+    this.health = info.health;
+    this.id = info.id;
+    this.name = info.name;    
+    this.thac0 = info.thac0 || 20;
+    this.weapon = info.weapon;
 };
 Person.prototype.isAlive = function(){
     result = false;
-    if (this.health >= 0) {
+    if (this.currentHealth >= 0) {
         result = true;
     }
     return result;
 };
 Person.prototype.damage = function(damage){
-    this.health -= damage;
+    this.currentHealth -= damage;
+    //console.log(this.name + " has taken " + damage + " damage. current health: " + this.health);
 };
 Person.prototype.getId = function() {
     return this.id;
@@ -24,7 +26,7 @@ Person.prototype.getId = function() {
 Person.prototype.info = function() {
     var mobInfo = "";
     mobInfo += "name: " + this.name + ", ID: " + this.id + ",";
-    mobInfo += " health: " + this.health + ", isAlive: " + this.isAlive() + ",";
+    mobInfo += " health: " + this.currentHealth + ", isAlive: " + this.isAlive() + ",";
     mobInfo += " Weapon: " + this.weapon + ", thac0: " + this.thac0 + ",";
     mobInfo += " ac: " + this.ac;
     return mobInfo;

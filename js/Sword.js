@@ -1,12 +1,8 @@
 
 var Weapon = require('./Weapon');
 
-
 function Sword() {
 
-    //if (!(this instanceof Dice)) {
-    //    return new Dice(width);
-    //}
     Weapon.call(this);
     this.name = "Sword";
     

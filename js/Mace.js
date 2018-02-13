@@ -3,10 +3,6 @@ var Weapon = require('./Weapon');
 
 
 function Mace() {
-
-    //if (!(this instanceof Dice)) {
-    //    return new Dice(width);
-    //}
     Weapon.call(this);
     this.name = "Mace";
     

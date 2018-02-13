@@ -163,19 +163,25 @@ module.exports = (function () {
     f.setMobTarget(orc6, steve, bob);
     f.setMobTarget(orc7, steve, bob);
     f.setMobTarget(orc8, steve, bob);
-    
-    
+   
     console.log("orc5: " + f.isInFight(orc5));
     console.log("orc6: " + f.isInFight(orc6));
     f.showFights();
     f.doit();
-    console.log(f.getTarget(bob));
-    f.showFights();
+    f.doit();
     
+    
+    //console.log(f.getTarget(bob));
+    
+    
+    f.showFights();
+    f.deadMobReport();
+    
+    /*
     var c = new Combat();
     
     console.log(c.weaponDamage("sword"));
-    
+    */
     //var weapon = new Weapon();
     //weapon.printName();
     //var sword = new Sword();
@@ -184,9 +190,9 @@ module.exports = (function () {
     var mace = weaponFactory.createWeapon("mace");
     mace.printName();
     
-    var weaponFactory = new WeaponFactory();
-    var sword = weaponFactory.createWeapon("sword");
-    sword.printName();
+    //var weaponFactory = new WeaponFactory();
+    //var sword = weaponFactory.createWeapon("sword");
+    //sword.printName();
     
     //console.log(f);
     /*
