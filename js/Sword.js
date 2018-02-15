@@ -5,6 +5,7 @@ function Sword() {
 
     Weapon.call(this);
     this.name = "Sword";
+    this.damage = 4.5;
     
 };
 Sword.prototype = Object.create(Weapon.prototype);

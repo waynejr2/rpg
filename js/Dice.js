@@ -1,18 +1,15 @@
 /* global module */
 // Dice.js
 
-var random;
-
-function Dice(randomi) {    
+function Dice(random) {    
   'use strict';
 
     //if (!(this instanceof Dice)) {
     //    return new Dice(width);
     //}
   
-    //var random;
-    //this.random = random || Math.random;
-    random = randomi || Math.random;
+    var random;
+    this.random = random || Math.random;
     
 };
     
@@ -54,7 +51,10 @@ function Dice(randomi) {
 	
 	Dice.prototype.roll = function(min, max) {
 		//return Math.floor(this.random() * (max - min)) + min;
-		return Math.floor(random() * (max - min)) + min;
+        //return Math.floor(Math.random() * Math.floor(max));
+        //return Math.floor(this.random() * Math.floor(max)+ min);
+		//return Math.floor(this.random() * Math.floor((max - min))) + min;
+        return Math.floor(this.random() * max) + min; 
 	};
 
 

@@ -43,8 +43,15 @@ function Combat () {
         return result;
     };
     
-    Combat.prototype.weaponDamage = function(weapon) {
+    Combat.prototype.weaponDamage = function(attacker) {
+        return attacker.weaponDamage();
+    };
+    
+    Combat.prototype.weaponDamage2 = function(weapon) {
         switch(weapon) {
+            case "HillGiantClub": 
+                return 9;
+                break;
             case "mace": 
                 return 3.5;
                 break;
