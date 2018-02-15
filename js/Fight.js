@@ -91,7 +91,6 @@ Fight.prototype.showFights = function() {
     };
 };
 Fight.prototype.getMobIndexById = function(mob) {
-    //console.log("getMobIndexById " + mob);
     var id = mob.getId();
     for (var i = 0; i < this.mobs.length; i++) {
         if (id === this.getNthMob(i).getId()) {
@@ -110,7 +109,6 @@ Fight.prototype.getMobs = function() {
     var result = [];    
     for (var i = 0; i < this.mobs.length; i++) {
         result.push(this.getNthMob(i));
-        //result.push(this.mobs[i][0]);
     };
     return result;
 };
@@ -118,13 +116,10 @@ Fight.prototype.getMobIds = function() {
     var result = [];
     for (var i = 0; i < this.mobs.length; i++) {
         result.push(this.getNthMob(i).getId());
-        //result.push(this.mobs[i][0].getId());
     };
     return result;
 };
 Fight.prototype.removeDeadFromFight2 = function() {
-    //console.log("AAAAAAAAAAAAAAAAA: " + this.mobs.length);
-    //console.log("BBBBBBBBBBBBBBBBB: " + this.mobs);
     var mob;
     var deadmob;
     var newMobs;
@@ -135,24 +130,16 @@ Fight.prototype.removeDeadFromFight2 = function() {
         mob = this.getNthMob(i);
         
         if (!mob.isAlive()) {
-            //console.log("------------DEAD: " + mob.name);
             this.newlyDeadMobs.push(mob);
-            //console.log("newlyDeadMobs: " + this.newlyDeadMobs);
         }        
     }
-    //console.log("XXXXXXXXXXXXXXXXXXX: deadmobs length: " + this.newlyDeadMobs.length);
     for (var newlydDeadMobsIndex = 0; newlydDeadMobsIndex < this.newlyDeadMobs.length; newlydDeadMobsIndex++) {
         deadmob = this.newlyDeadMobs[newlydDeadMobsIndex];
         mob = null;
         
-        //for (var mobsIndex = this.mobs.length -1; mobsIndex >= 0; mobsIndex--) {
         for (var mobsIndex = 0; mobsIndex < this.mobs.length; mobsIndex++) {
             for (var opponentsIndex = this.mobs[mobsIndex][1].length -1; opponentsIndex >= 0; opponentsIndex--) {
-            //for (var opponentsIndex = 0; opponentsIndex < this.mobs[mobsIndex][1].length; opponentsIndex++) {
-                //console.log("mob " + this.mobs[mobsIndex][0].name + " length "  + this.mobs[mobsIndex][1].length);
-                //console.log("    opponent " + this.mobs[mobsIndex][1][opponentsIndex].name);
                 if (deadmob === this.mobs[mobsIndex][1][opponentsIndex]) {
-                    //console.log("deadmob: " + deadmob.name + " is the same as " + this.mobs[mobsIndex][1][opponentsIndex].name);
                     this.mobs[mobsIndex][1].splice(opponentsIndex, 1);
                 }
             }
@@ -205,33 +192,16 @@ Fight.prototype.removeDeadTargets = function() {
                     console.log("    match: " + dead[di].name + " " + this.mobs[i][1][ti].name);
                     this.mobs[i][1].splice(ti, 1);
                 }                
-            }            
-            /*
-            for (var ti = 0; ti < this.mobs[i][1].length; ti++) {
-                if (dead[di] == this.mobs[i][1][ti]) {
-                    console.log("    match: " + dead[di].name + " " + this.mobs[i][1][ti].name);
-                    this.mobs[i][1].splice(ti, 1);
-                    ti--;
-                    
-                }
             }
-            */
         }        
     }
 };
 Fight.prototype.removeDeadAttackers = function() {
-    //console.log("removeDeadAttackers");
     var i = this.mobs.length;
     var m;
     while (i--) {
         if (!this.mobs[i][0].isAlive()) {
-            //console.log("   " + this.mobs[i][0].name + " is dead");
-            //mobs.push(this.mobs.splice(i, 1);
-            //console.log("     this.mobs.length: " + this.mobs.length); 
             m = this.mobs.splice(i, 1);
-            //console.log("     this.obs.length: " + this.mobs.length); 
-            //console.log("        m.length:" + m.length);
-            //console.log("           m[0][0] should dead mob: " + m[0][0].name);
             this.deadMobs.push(m[0][0]);
         }
     }
@@ -355,47 +325,29 @@ Fight.prototype.attack = function(defender) {
     ;
 };
 function removeDeadTargets2() {
-    ////console.log("removeDeadTargets2");
     var dead = [];
     for (var i = 0; i < this.mobs.length; i++ ) {
         if (!this.mobs[i][0].isAlive()) {
             dead.push(this.mobs[i][0]);
         }
     }
-    /*
-    for (var di = 0; di < dead.length; di++) {
-        console.log("deadname: " + dead[di].name);
-    }
-    */
-    for (var i = 0; i < this.mobs.length; i++ ) {
-        //console.log(" checking mob " + this.mobs[i][0].name + " for dead targets");
-        
+    for (var i = 0; i < this.mobs.length; i++ ) {        
         for (var di = 0; di < dead.length; di++) {
-            var ti = this.mobs[i][1].length;
-            
+            var ti = this.mobs[i][1].length;            
             while(ti--) {
                 if (dead[di] == this.mobs[i][1][ti]) {
-                    //console.log("    match: " + dead[di].name + " " + this.mobs[i][1][ti].name);
                     this.mobs[i][1].splice(ti, 1);
                 }                
             }           
         }        
     }
-}
-
+};
 function removeDeadAttackers2() {
-    //console.log("removeDeadAttackers");
     var i = this.mobs.length;
     var m;
     while (i--) {
         if (!this.mobs[i][0].isAlive()) {
-            //console.log("   " + this.mobs[i][0].name + " is dead");
-            //mobs.push(this.mobs.splice(i, 1);
-            //console.log("     this.mobs.length: " + this.mobs.length); 
             m = this.mobs.splice(i, 1);
-            //console.log("     this.obs.length: " + this.mobs.length); 
-            //console.log("        m.length:" + m.length);
-            //console.log("           m[0][0] should dead mob: " + m[0][0].name);
             this.deadMobs.push(m[0][0]);
         }
     }
