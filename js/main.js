@@ -4,9 +4,6 @@ var helper = require('./mainHelper');
 var Dice = require('./Dice');
 var Combat = require('./Combat');
 var MobFactory = require('./lib/Mobs/MobFactory');
-//var Person = require('./lib/Mobs/Person');
-//var Human = require('./lib/Mobs/Human');
-//var Orc = require('./lib/Mobs/Orc');
 var Fight = require('./Fight');
 var WeaponFactory = require('./lib/Weapons/WeaponFactory');
 
@@ -34,9 +31,6 @@ module.exports = (function () {
     console.log("my_config");
     console.log(my_config);
     console.log(my_config.a);
-    
-    
- 
         
     var f = new Fight();
     var mobFactory = new MobFactory();
@@ -53,24 +47,10 @@ module.exports = (function () {
     
     f.showFights();
     f.doit();
-    //f.doit();
-    
-    
-    //console.log(f.getTarget(bob));
-    
     
     f.showFights();
-    f.deadMobReport();
-    
-    /*
-    var c = new Combat();
-    
-    console.log(c.weaponDamage("sword"));
-    */
-    //var weapon = new Weapon();
-    //weapon.printName();
-    //var sword = new Sword();
-    //sword.printName();
+    f.deadMobReport();    
+  
     var weaponFactory = new WeaponFactory();
     var mace = weaponFactory.createWeapon("mace");
     mace.printName();
