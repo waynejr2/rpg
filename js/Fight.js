@@ -9,6 +9,9 @@ function Fight() {
     this.newlyDeadMobs = [];
 
 };
+Fight.prototype.listMobs = function() {
+    return this.mobs;
+};
 Fight.prototype.addMob = function(mob) {
     var entry = [
         mob, []

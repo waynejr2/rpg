@@ -1,11 +1,12 @@
 /* global module */
 
+var helper = require('./mainHelper');
 var Dice = require('./Dice');
 var Combat = require('./Combat');
 var MobFactory = require('./lib/Mobs/MobFactory');
-var Person = require('./lib/Mobs/Person');
-var Human = require('./lib/Mobs/Human');
-var Orc = require('./lib/Mobs/Orc');
+//var Person = require('./lib/Mobs/Person');
+//var Human = require('./lib/Mobs/Human');
+//var Orc = require('./lib/Mobs/Orc');
 var Fight = require('./Fight');
 var WeaponFactory = require('./lib/Weapons/WeaponFactory');
 
@@ -34,27 +35,22 @@ module.exports = (function () {
     console.log(my_config);
     console.log(my_config.a);
     
-    /*
-    console.log("Hllo");
-    hw();
-    console.log("my_config");
-    console.log(my_config);
-    console.log(my_config.a);
-    var s = new Dice();
-    var c = new Combat(s);
- 
     
-    attack(s.d20());
-    attack(s.d20());
-    attack(s.d20());
-    attack(s.d20());
-    attack(s.d20());
-    attack(s.d20());
-    */
+ 
         
     var f = new Fight();
     var mobFactory = new MobFactory();
+    var mainhelper = new helper();
+    //var mainhelper = new helper(f, mobFactory);
+    mainhelper.doit(f, mobFactory);
+    console.log(f);
+    var listofmobs = f.listMobs();
+    console.log("listofmobs length: " + listofmobs.length);
+    for (var wji = 0; wji < listofmobs.length; wji++) {
+        console.log("   index: " + wji + " name: " + listofmobs[wji][0].name);
+    }
     
+ /*  
     var bobInfo = {
         id: 1,
         name: "bob",
@@ -68,7 +64,7 @@ module.exports = (function () {
     var bob = mobFactory.createMob("human", bobInfo);
     //var bob = new Human(bobInfo);
     //var bob = new Person(bobInfo);
-    f.addMob(bob);    
+    f.addMob(bob);   
     
     var steveInfo = {
         id: 2,
@@ -113,7 +109,7 @@ module.exports = (function () {
     /*
     var orc3 = new Person(orcInfo3);
     f.addMob(orc3);     
-    */
+    
     
     var orcInfo4 = {
         id: 4,
@@ -207,6 +203,8 @@ module.exports = (function () {
    
     console.log("orc5: " + f.isInFight(orc5));
     console.log("orc6: " + f.isInFight(orc6));
+    */
+    
     f.showFights();
     f.doit();
     //f.doit();
