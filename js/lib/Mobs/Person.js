@@ -1,11 +1,15 @@
 
-var WeaponFactory = require('./WeaponFactory');
+var WeaponFactory = require('../Weapons/WeaponFactory');
 
 module.exports = (function(){
     
     var weaponFactory = new WeaponFactory();
     
     function Person(info) {
+        if (!info) {
+        //if (info == undefined) {
+            info = {};
+        }
         var ac, currentHealth, health, id, name, thac0, weapon;
         this.ac = info.ac || 10;
         this.currentHealth = info.health;
@@ -14,7 +18,7 @@ module.exports = (function(){
         this.name = info.name;    
         this.thac0 = info.thac0 || 20;
         this.weapon2 = weaponFactory.createWeapon(info.weapon);
-        console.log("Person: weapon2: " + this.weapon2.getName());
+        //console.log("Person: weapon2: " + this.weapon2.getName());
         this.weapon = info.weapon;        
     }
     

@@ -2,14 +2,12 @@
 
 var Dice = require('./Dice');
 var Combat = require('./Combat');
-var MobFactory = require('./MobFactory');
-var Person = require('./Person');
-var Human = require('./Human');
-var Orc = require('./Orc');
+var MobFactory = require('./lib/Mobs/MobFactory');
+var Person = require('./lib/Mobs/Person');
+var Human = require('./lib/Mobs/Human');
+var Orc = require('./lib/Mobs/Orc');
 var Fight = require('./Fight');
-var WeaponFactory = require('./WeaponFactory');
-//var Weapon = require('./Weapon');
-//var Sword = require('./Sword');
+var WeaponFactory = require('./lib/Weapons/WeaponFactory');
 
 var hw = function() {
     console.log("Hello")
