@@ -1,4 +1,5 @@
 /* global module */
+///for extra special friends of rick
 
 var Dice = require('./Dice');
 var Combat = require('./Combat');
