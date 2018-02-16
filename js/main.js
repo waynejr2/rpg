@@ -247,6 +247,7 @@ module.exports = (function () {
     var orc9 = mobFactory.createMob("orc", orcInfo9);    
     //var orc9 = new Orc(orcInfo9);
     console.log(orc9.info());
+    console.log("################################orc9 list: " + orc9.list()[0].info());
 
     var orc10 = mobFactory.createMob("orc", orcInfo10);
     //var orc10 = new Orc(orcInfo10);

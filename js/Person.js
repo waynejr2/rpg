@@ -54,6 +54,11 @@ module.exports = (function(){
         return result;
     };
     
+    Person.prototype.list = function() {
+        var result = [this];
+        return result;
+    };
+    
     Person.prototype.weaponDamage = function() {
         return this.weapon2.calculateDamage();
     };

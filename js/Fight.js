@@ -124,7 +124,6 @@ Fight.prototype.removeDeadFromFight2 = function() {
     var deadmob;
     var newMobs;
     var targets;
-
     
     for (var i = 0; i < this.mobs.length; i++) {
         mob = this.getNthMob(i);
@@ -145,7 +144,6 @@ Fight.prototype.removeDeadFromFight2 = function() {
             }
         }       
     }
-    
     for (var mobsIndex = 0; mobsIndex < this.mobs.length; mobsIndex++) {
         newMobs = [];
         mob = null;
@@ -228,6 +226,30 @@ Fight.prototype.printFights = function(fights) {
         console.log(output);
     }
 };
+Fight.prototype.fakeInitiative = function() {
+    var d = new Dice();
+    var OrderQueue = [[],[],[],[],[],[],[],[],[],[]];
+    var initroll;
+    var mob;
+    
+    for (var i = 0; i < this.mobs.length; i++) {
+        initRoll = d.d10()-1;
+        mob = this.mobs[i][0];
+        //console.log("initRoll: " + initRoll + " mob: " + mob.name);
+        OrderQueue[initRoll].push(mob);
+        //OrderQueue[initRoll].push(this.mobs[i][0]);
+        //console.log(OrderQueue);
+        //OrderQueue[i].push(this.mobs[i][0]);
+    }
+    for (var initiative = 0; initiative < OrderQueue.length; initiative++) {
+        console.log("Initiative number: " + initiative);
+        for(var ii = 0; ii < OrderQueue[initiative].length; ii++) {
+            //console.log("   mob: " + OrderQueue[0]);
+            //console.log("   mob: " + OrderQueue[initiatve][ii].name);
+            console.log("   mob: " + OrderQueue[initiative][ii].name);
+        }
+    };
+};
 Fight.prototype.doit = function() {
     var fight;
     fight = false;
@@ -243,12 +265,14 @@ Fight.prototype.doit = function() {
     var count = 0;
     while (fight) {
         var fights, attacker, defender;
+        
         //console.log("FIGHT IS ON");
     console.log("_________________________________________________________________");
     console.log();
     console.log("ROUND NUMBER: " + count);
     console.log();
     console.log("_________________________________________________________________");
+        this.fakeInitiative();
         
         fights = this.getMobsInFight();
         //fights = [];
