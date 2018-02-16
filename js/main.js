@@ -65,7 +65,8 @@ module.exports = (function () {
         ac: 4
     };
     
-    var bob = new Human(bobInfo);
+    var bob = mobFactory.createMob("human", bobInfo);
+    //var bob = new Human(bobInfo);
     //var bob = new Person(bobInfo);
     f.addMob(bob);    
     
@@ -78,7 +79,8 @@ module.exports = (function () {
         ac: 3
     };
     
-    var steve = new Human(steveInfo);    
+    var steve = mobFactory.createMob("human", steveInfo);
+    //var steve = new Human(steveInfo);    
     //var steve = new Person(steveInfo);
     f.addMob(steve);
     
@@ -91,7 +93,8 @@ module.exports = (function () {
         ac: 4
     };
     
-    var rick = new Human(rickInfo);    
+    var rick = mobFactory.createMob("human", rickInfo);
+    //var rick = new Human(rickInfo);    
     //var steve = new Person(steveInfo);
     f.addMob(rick);  
        
@@ -104,7 +107,8 @@ module.exports = (function () {
         ac: 6
     };
     
-    var orc3 = new Orc(orcInfo3);
+    var orc3 = mobFactory.createMob("orc", orcInfo3);
+    //var orc3 = new Orc(orcInfo3);
     f.addMob(orc3);
     /*
     var orc3 = new Person(orcInfo3);
@@ -120,7 +124,8 @@ module.exports = (function () {
         ac: 6
     };
     
-    var orc4 = new Orc(orcInfo4);
+    var orc4 = mobFactory.createMob("orc", orcInfo4);
+    //var orc4 = new Orc(orcInfo4);
     f.addMob(orc4);      
 
     var orcInfo5 = {
@@ -132,7 +137,8 @@ module.exports = (function () {
         ac: 6
     };
     
-    var orc5 = new Orc(orcInfo5);
+    var orc5 = mobFactory.createMob("orc", orcInfo5);
+    //var orc5 = new Orc(orcInfo5);
     f.addMob(orc5);      
     
     var orcInfo6 = {
@@ -144,7 +150,8 @@ module.exports = (function () {
         ac: 6
     };
     
-    var orc6 = new Orc(orcInfo6);
+    var orc6 = mobFactory.createMob("orc", orcInfo6);
+    //var orc6 = new Orc(orcInfo6);
     f.addMob(orc6);      
    
     var orcInfo7 = {
@@ -156,7 +163,8 @@ module.exports = (function () {
         ac: 6
     };
     
-    var orc7 = new Orc(orcInfo7);
+    var orc7 = mobFactory.createMob("orc", orcInfo7);
+    //var orc7 = new Orc(orcInfo7);
     f.addMob(orc7);      
    
     var orcInfo8 = {
@@ -167,8 +175,9 @@ module.exports = (function () {
         thac0: 19,
         ac: 6
     };
-        
-    var orc8 = new Orc(orcInfo8);
+
+    var orc8 = mobFactory.createMob("orc", orcInfo8);
+    //var orc8 = new Orc(orcInfo8);
     f.addMob(orc8);
     
     var hillgiantInfo = {
@@ -256,6 +265,15 @@ module.exports = (function () {
     
     orc10.action(andy);
     andy.action(orc10);
+    
+    console.log("************************************************************* orc40");
+    var orcInfo40 = {
+        id: 40,
+        name: "orc40",
+    };
+    var orc40 = mobFactory.createMob("orc", orcInfo40);
+  
+    console.log(orc40.type);
     
     //console.log(Math.floor(0.5 * 20) + 1); 
     

@@ -11,6 +11,7 @@ module.exports = (function() {
             id: info.id,
             name: info.name, 
             thac0: info.thac0 || 12,
+            type: info.type || "HILLGIANT",
             weapon: info.weapon || "HillGiantClub"
         };
         Person.call(this, HillGiantInfo);
@@ -23,7 +24,6 @@ module.exports = (function() {
         console.log("HillGiant is powerfully ATTACKING!!!!");
         console.log("   mob: " + this.name + " is attacking " + mob.name);
     };
-
     
     return HillGiant;
 }());

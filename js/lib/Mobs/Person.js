@@ -7,19 +7,19 @@ module.exports = (function(){
     
     function Person(info) {
         if (!info) {
-        //if (info == undefined) {
             info = {};
         }
-        var ac, currentHealth, health, id, name, thac0, weapon;
+        var ac, currentHealth, health, id, name, thac0, type, weapon;
         this.ac = info.ac || 10;
         this.currentHealth = info.health;
         this.health = info.health;
         this.id = info.id;
         this.name = info.name;    
         this.thac0 = info.thac0 || 20;
+        this.type = info.type || "Person";
         this.weapon2 = weaponFactory.createWeapon(info.weapon);
         //console.log("Person: weapon2: " + this.weapon2.getName());
-        this.weapon = info.weapon;        
+        this.weapon = info.weapon;    
     }
     
     Person.prototype.action = function(mob) {
@@ -45,7 +45,7 @@ module.exports = (function(){
         var mobInfo = "";
         mobInfo += "name: " + this.name + ", ID: " + this.id + ",";
         mobInfo += " health: " + this.currentHealth + ", isAlive: " + this.isAlive() + ",";
-        mobInfo += " Weapon: " + this.weapon + ", thac0: " + this.thac0 + ",";
+        mobInfo += " Weapon: " + this.weapon + ", thac0: " + this.thac0 + ", type: " + this.type + ",";
         mobInfo += " ac: " + this.ac;
         return mobInfo;
     };

@@ -11,6 +11,7 @@ module.exports = (function() {
             id: info.id,
             name: info.name, 
             thac0: info.thac0 || 19,
+            type: info.type || "ORC",
             weapon: info.weapon || "sword"
         };
         Person.call(this, orcInfo);
@@ -23,7 +24,6 @@ module.exports = (function() {
         console.log("Orc is viciously ATTACKING!!!!");
         console.log("   mob: " + this.name + " is attacking " + mob.name);
     };
-
     
     return Orc;
 }());

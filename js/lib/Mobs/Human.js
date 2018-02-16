@@ -11,6 +11,7 @@ module.exports = (function() {
             id: info.id,
             name: info.name, 
             thac0: info.thac0 || 19,
+            type: info.type || "HUMAN",
             weapon: info.weapon || "sword"
         };
         Person.call(this, humanInfo);
