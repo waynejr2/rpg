@@ -51,6 +51,8 @@ module.exports = (function () {
     f.showFights();
     f.deadMobReport();    
   
+  return;
+  
     var weaponFactory = new WeaponFactory();
     var mace = weaponFactory.createWeapon("mace");
     mace.printName();
