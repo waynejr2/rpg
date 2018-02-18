@@ -5,6 +5,7 @@ var Dice = require('./Dice');
 var Combat = require('./Combat');
 var MobFactory = require('./lib/Mobs/MobFactory');
 var Fight = require('./Fight');
+var Group = require('./Group');
 var WeaponFactory = require('./lib/Weapons/WeaponFactory');
 
 var hw = function() {
@@ -51,7 +52,7 @@ module.exports = (function () {
     f.showFights();
     f.deadMobReport();    
   
-  return;
+  //return;
   
     var weaponFactory = new WeaponFactory();
     var mace = weaponFactory.createWeapon("mace");
@@ -100,6 +101,30 @@ module.exports = (function () {
     var orc40 = mobFactory.createMob("orc", orcInfo40);
   
     console.log(orc40.type);
+    
+    var group = new Group();
+    group.add(orc9);
+    console.log("main group.add(orc9)");
+    group.add(orc10);
+    console.log("main group.add(orc10)");
+    var group2 = new Group();
+    var group3 = new Group();
+    group2.add(orc40);
+    console.log("main group2.add(orc40)");
+    group3.add(andy);
+    console.log("main group3.add(andy)");
+    group2.add(group3);
+    console.log("main group2.add(group3)");
+    group.add(group2);
+    console.log("main group.add(group2)");
+
+    var aaa = group.list();
+    for (var a = 0 ; a < aaa.length; a++ ) {
+        console.log("aaa[" + a + "]: " + aaa[a].info());
+    };
+    var b = [];
+    b.push(1); b.push(2); b.push(3);
+    console.log("b: " + b);
  
 
 }());  
