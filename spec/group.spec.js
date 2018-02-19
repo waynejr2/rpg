@@ -1,5 +1,5 @@
 
-//var Person = require("../js/lib/Mobs/Person");
+//var Mob = require("../js/lib/Mobs/Mob");
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 var path = require('path');
@@ -33,7 +33,7 @@ describe('Testing Group: ', function() {
         it('no add has been run, should have empty list', function() {
             var group = new Group();
             var mobFactory = new MobFactory();
-            var person = mobFactory.createMob("orc");
+            var Mob = mobFactory.createMob("orc");
             
             var actual = group.list();
             var expected = [];

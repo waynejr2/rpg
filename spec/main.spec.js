@@ -1,5 +1,5 @@
 
-//var Person = require("../js/lib/Mobs/Person");
+//var Mob = require("../js/lib/Mobs/Mob");
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 var path = require('path');

@@ -57,6 +57,7 @@ module.exports = (function () {
     var weaponFactory = new WeaponFactory();
     var mace = weaponFactory.createWeapon("mace");
     mace.printName();
+    console.log("Main mace.calculateDamage: " + mace.calculateDamage());
     
     var orcInfo9 = {
         id: 11,

@@ -69,6 +69,7 @@ Fight.prototype.getTarget = function(mob) {
     for (var tindex = 0; tindex < this.mobs[index][1].length; tindex++) {
         if (this.mobs[index][1][tindex].isAlive()) {
             result = this.mobs[index][1][tindex];
+            break;
         }
     } 
     return result;

@@ -15,7 +15,7 @@ function Combat () {
         this.attackBonus = attackBonus || 0;
         this.weaponAdjustment = weaponAdjustment || 0;
         this.thac0 = thac0 || 20;
-        this.armorClass = armorClass || 10;
+        this.armorClass = armorClass === 0 ? armorClass: armorClass || 10;        
   
         this.toBeHitNumber = this.calculateToBeHit(this.thac0, this.armorClass);
         this.toHitNumber = this.calculateToHit(this.toHitRoll, this.attackBonus, this.weaponAdjustment);
@@ -49,6 +49,9 @@ function Combat () {
     
     Combat.prototype.weaponDamage2 = function(weapon) {
         switch(weapon) {
+            case "GiantSlayerSword": 
+                return 14.5;
+                break;
             case "HillGiantClub": 
                 return 9;
                 break;
@@ -57,6 +60,9 @@ function Combat () {
                 break;
             case "sword": 
                 return 4.5;
+                break;
+            case "magicswordplus3": 
+                return 7.5;
                 break;
             case "magicsword": 
                 return 14.5;

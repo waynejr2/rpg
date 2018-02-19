@@ -1,12 +1,12 @@
 
 
-var Person = require('./Person');
+var Mob = require('./Mob');
 
 module.exports = (function() {
     
     function HillGiant(info) {
         var HillGiantInfo = {
-            ac:info.ac || 4,
+            ac: info.ac === 0 ? info.ac : info.ac  || 4,
             health: info.health || 37,
             id: info.id,
             name: info.name, 
@@ -14,10 +14,10 @@ module.exports = (function() {
             type: info.type || "HILLGIANT",
             weapon: info.weapon || "HillGiantClub"
         };
-        Person.call(this, HillGiantInfo);
+        Mob.call(this, HillGiantInfo);
     }
     
-    HillGiant.prototype = Object.create(Person.prototype);
+    HillGiant.prototype = Object.create(Mob.prototype);
     HillGiant.prototype.constuctor = HillGiant;
 
     HillGiant.prototype.actionScript = function(mob) {

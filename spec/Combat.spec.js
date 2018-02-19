@@ -134,6 +134,20 @@ describe('Testing Combat: ', function() {
     });
       
     describe('calculateToBeHit test suite', function() {
+        describe('Regression tests', function() {
+            it('when armorClass is 0, thac0 is 15, calculateToBeHit should be 15', function() {
+                var c = new Combat(dice);
+                var thac0 = 15;
+                var armorClass = 0;
+                        
+                var actual = c.calculateToBeHit(thac0, armorClass);
+                var expected = 15;
+            
+                expect(actual).to.equal(expected);
+                
+            });
+        });
+        
         it('when armorClass is 0, thac0 will be the same as ToBeHit', function() {
             var c = new Combat(dice);
             var thac0 = 10;
@@ -282,8 +296,35 @@ describe('Testing Combat: ', function() {
             
                 expect(actual).to.equal(expected);                
             });
+            
+            it('with armorClass = 0, tohit = 5, thac0 is 15 and all others default, should be false', function() {
+                var c = new Combat(dice);
+            
+                var actual = c.toHit(5, null, null, 15, 0);
+                var expected = false;
+            
+                expect(actual).to.equal(expected);                
+            });
+            
 
         });
 
     });
+    /*
+    describe('weaponDamage test suite', function() {
+        it('', function() {
+            var c = new Combat(dice);
+            var att = (function() {
+                function weaponDamage () { return 9};
+                
+                return { weaponDamage: weaponDamage()};
+            })();
+            console.log(typeof att.weaponDamage);
+            
+            var actual = c.weaponDamage(att);
+            var expected = 9;
+            
+            expect(actual).to.equal(expected);
+        });
+    });*/
 });

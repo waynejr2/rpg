@@ -52,6 +52,21 @@ mainHelper.prototype.doit = function(f, mobFactory) {
     
     var rick = mobFactory.createMob("human", rickInfo);
     f.addMob(rick);
+    
+    var dorfInfo = {
+        id: 111,
+        name: "Dorf",
+        health: 43,
+        //weapon: "magicsword",
+        weapon: "sword",
+        thac0: 15,
+        ac: 0
+    };
+    
+    console.log("f is: " + f);
+    console.log("mobFactory is: " + mobFactory);
+    var dorf = mobFactory.createMob("dwarf", dorfInfo);    
+    f.addMob(dorf);    
 
        
     var orcInfo3 = {
@@ -144,18 +159,19 @@ mainHelper.prototype.doit = function(f, mobFactory) {
     
     console.log(f.getMobs());
     console.log(f.getMobIds());
-    f.setMobTarget(bob, orc3, orc4, orc5, orc6, orc7, orc8, hillgiant33);
+    f.setMobTarget(bob, orc3, orc4, orc5, orc6, hillgiant33, orc7, orc8 );
     f.setMobTarget(steve, orc8, orc7, orc6, hillgiant33, orc5, orc4, orc3);
     f.setMobTarget(rick, hillgiant33, orc6, orc5, orc4, orc8, orc7, orc3);
+    f.setMobTarget(dorf, hillgiant33, orc6, orc5, orc4, orc8, orc7, orc3 );
     
-    f.setMobTarget(orc3, bob, hillgiant33, steve, rick);
-    f.setMobTarget(orc4, bob, steve, rick, hillgiant33);
-    f.setMobTarget(orc5, hillgiant33, rick, bob, steve);
-    f.setMobTarget(orc6, rick, steve, bob, hillgiant33);
-    f.setMobTarget(orc7, steve, rick, hillgiant33,  bob);
-    f.setMobTarget(orc8, steve, rick, bob, hillgiant33);
+    f.setMobTarget(orc3, bob, hillgiant33, steve, dorf, rick);
+    f.setMobTarget(orc4, dorf, bob, steve, rick, hillgiant33);
+    f.setMobTarget(orc5, hillgiant33, rick, dorf, bob, steve);
+    f.setMobTarget(orc6, rick, steve, dorf, bob, hillgiant33);
+    f.setMobTarget(orc7, steve, rick, hillgiant33,  bob, dorf);
+    f.setMobTarget(orc8, steve, rick, bob, hillgiant33, dorf);
     
-    f.setMobTarget(hillgiant33, orc5, orc4, orc8, orc7, orc3, steve, rick, orc6,  bob);
+    f.setMobTarget(hillgiant33, dorf, orc5, orc4, orc8, orc7, orc3, steve, rick, orc6,  bob);
    
     console.log("orc5: " + f.isInFight(orc5));
     console.log("orc6: " + f.isInFight(orc6));

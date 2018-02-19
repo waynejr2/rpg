@@ -5,43 +5,43 @@ module.exports = (function(){
     
     var weaponFactory = new WeaponFactory();
     
-    function Person(info) {
+    function Mob(info) {
         if (!info) {
             info = {};
         }
         var ac, currentHealth, health, id, name, thac0, type, weapon;
-        this.ac = info.ac || 10;
+        this.ac = info.ac === 0 ? info.ac : info.ac || 10;
         this.currentHealth = info.health;
         this.health = info.health;
         this.id = info.id;
         this.name = info.name;    
         this.thac0 = info.thac0 || 20;
-        this.type = info.type || "Person";
+        this.type = info.type || "Mob";
         this.weapon2 = weaponFactory.createWeapon(info.weapon);
-        //console.log("Person: weapon2: " + this.weapon2.getName());
+        //console.log("Mob: weapon2: " + this.weapon2.getName());
         this.weapon = info.weapon;    
     }
     
-    Person.prototype.action = function(mob) {
+    Mob.prototype.action = function(mob) {
         this.actionScript(mob);
         //console.log("ATTACKING!!!!");
         //console.log("   mob: " + this.name + " is attacking " + mob.name);
     };
     
-    Person.prototype.actionScript = function(mob) {
+    Mob.prototype.actionScript = function(mob) {
         //this.actionScript(mob);
     };
     
-    Person.prototype.damage = function(damage){
+    Mob.prototype.damage = function(damage){
         this.currentHealth -= damage;
         console.log(this.name + " has taken " + damage + " damage. current health: " + this.currentHealth);
     };
     
-    Person.prototype.getId = function() {
+    Mob.prototype.getId = function() {
         return this.id;
     };
     
-    Person.prototype.info = function() {
+    Mob.prototype.info = function() {
         var mobInfo = "";
         mobInfo += "name: " + this.name + ", ID: " + this.id + ",";
         mobInfo += " health: " + this.currentHealth + ", isAlive: " + this.isAlive() + ",";
@@ -50,7 +50,7 @@ module.exports = (function(){
         return mobInfo;
     };
     
-    Person.prototype.isAlive = function(){
+    Mob.prototype.isAlive = function(){
         result = false;
         if (this.currentHealth > 0) {
             result = true;
@@ -58,15 +58,15 @@ module.exports = (function(){
         return result;
     };
     
-    Person.prototype.list = function() {
+    Mob.prototype.list = function() {
         var result = [this];
         return result;
     };
     
-    Person.prototype.weaponDamage = function() {
+    Mob.prototype.weaponDamage = function() {
         return this.weapon2.calculateDamage();
     };
 
     
-    return Person
+    return Mob
 }());

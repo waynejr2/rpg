@@ -1,12 +1,12 @@
 
 
-var Person = require('./Person');
+var Mob = require('./Mob');
 
 module.exports = (function() {
     
     function Orc(info) {
         var orcInfo = {
-            ac:info.ac || 6,
+            ac: info.ac === 0 ? info.ac : info.ac  || 6,
             health: info.health || 8,
             id: info.id,
             name: info.name, 
@@ -14,10 +14,10 @@ module.exports = (function() {
             type: info.type || "ORC",
             weapon: info.weapon || "sword"
         };
-        Person.call(this, orcInfo);
+        Mob.call(this, orcInfo);
     }
     
-    Orc.prototype = Object.create(Person.prototype);
+    Orc.prototype = Object.create(Mob.prototype);
     Orc.prototype.constuctor = Orc;
 
     Orc.prototype.actionScript = function(mob) {

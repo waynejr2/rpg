@@ -1,17 +1,17 @@
 
-//var Person = require("../js/lib/Mobs/Person");
+//var mob = require("../js/lib/Mobs/Mob");
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 var path = require('path');
 var basedir = path.resolve('./');
-var Person = require(path.resolve(basedir, 'js/lib/Mobs/Person'));
+var Mob = require(path.resolve(basedir, 'js/lib/Mobs/Mob'));
 
-describe('Testing Person: ', function() {
+describe('Testing Mob: ', function() {
     describe('functions are functions: ', function() {
         it('action() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.action;
+            var actual = typeof mob.action;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -19,9 +19,9 @@ describe('Testing Person: ', function() {
         });
         
         it('actionScript() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.actionScript;
+            var actual = typeof mob.actionScript;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -29,9 +29,9 @@ describe('Testing Person: ', function() {
         });
         
         it('damage() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.damage;
+            var actual = typeof mob.damage;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -39,9 +39,9 @@ describe('Testing Person: ', function() {
         });
         
         it('getId() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.getId;
+            var actual = typeof mob.getId;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -49,9 +49,9 @@ describe('Testing Person: ', function() {
         });
         
         it('info() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.info;
+            var actual = typeof mob.info;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -59,9 +59,9 @@ describe('Testing Person: ', function() {
         });
         
         it('isAlive() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.isAlive;
+            var actual = typeof mob.isAlive;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -69,9 +69,9 @@ describe('Testing Person: ', function() {
         });
         
         it('list() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.list;
+            var actual = typeof mob.list;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -79,9 +79,9 @@ describe('Testing Person: ', function() {
         });
         
         it('weaponDamage() is a function', function() {
-            var person = new Person();
+            var mob = new Mob();
             
-            var actual = typeof person.weaponDamage;
+            var actual = typeof mob.weaponDamage;
             var expected = "function";
             
             expect(actual).to.equal(expected);
@@ -90,11 +90,11 @@ describe('Testing Person: ', function() {
     });
     
     describe('list test suite: ', function() {
-        it('list returns array with newly created [person], aka return[this]', function() {
-            var person = new Person();
+        it('list returns array with newly created [Mob], aka return[this]', function() {
+            var mob = new Mob();
             
-            var actual = person.list();
-            var expected = [person];            
+            var actual = mob.list();
+            var expected = [mob];            
             
             expect(actual).to.deep.equal(expected);
         });
