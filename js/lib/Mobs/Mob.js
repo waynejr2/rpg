@@ -11,14 +11,15 @@ module.exports = (function(){
         }
         var ac, currentHealth, health, id, name, thac0, type, weapon;
         this.ac = info.ac === 0 ? info.ac : info.ac || 10;
-        this.currentHealth = info.health;
-        this.health = info.health;
-        this.id = info.id;
-        this.name = info.name;    
-        this.thac0 = info.thac0 || 20;
+        this.currentHealth = info.health === 0 ? info.health : info.health || 1;
+        this.health = info.health === 0 ? info.health : info.health || 1;
+        this.id = info.id === 0 ? info.id : info.id || 0;
+        this.name = info.name === 0 ? info.name : info.name || "noname";    
+        this.thac0 = info.thac0 ===0 ? info.thac0 : info.thac0 || 20;
         this.type = info.type || "Mob";
         this.weapon2 = weaponFactory.createWeapon(info.weapon);
         //console.log("Mob: weapon2: " + this.weapon2.getName());
+        //this.weapon = info.weapon === 0 ? info.weapon : info.weapon || "none"
         this.weapon = info.weapon;    
     }
     
@@ -35,6 +36,21 @@ module.exports = (function(){
     Mob.prototype.damage = function(damage){
         this.currentHealth -= damage;
         console.log(this.name + " has taken " + damage + " damage. current health: " + this.currentHealth);
+    };
+    
+    Mob.prototype.getInfo = function() {
+        var result = {};
+        
+        result.ac = this.ac;
+        result.currentHealth = this.currentHealth;
+        result.health = this.health;
+        result.id = this.id;
+        result.name = this.name;
+        result.thac0 = this.thac0;
+        result.type = this.type;
+        result.weapon = this.weapon;
+        
+        return result;
     };
     
     Mob.prototype.getId = function() {

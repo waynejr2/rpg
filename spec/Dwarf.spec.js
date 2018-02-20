@@ -1,44 +1,44 @@
 
-//var mob = require("../js/lib/Mobs/Mob");
+//var dwarf = require("../js/lib/Mobs/Dwarf");
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 var path = require('path');
 var basedir = path.resolve('./');
-var Mob = require(path.resolve(basedir, 'js/lib/Mobs/Mob'));
+var Dwarf = require(path.resolve(basedir, 'js/lib/Mobs/Dwarf'));
 
-describe('Testing Mob: ', function() {
+describe('Testing Dwarf: ', function() {
     describe('functions are functions: ', function() {
         it('action() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.action;
+            var actual = typeof dwarf.action;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
         
         it('actionScript() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.actionScript;
+            var actual = typeof dwarf.actionScript;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
         
         it('damage() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.damage;
+            var actual = typeof dwarf.damage;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
         
         it('getInfo() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.getInfo;
+            var actual = typeof dwarf.getInfo;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
@@ -46,127 +46,127 @@ describe('Testing Mob: ', function() {
         
         
         it('getId() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.getId;
+            var actual = typeof dwarf.getId;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
         
         it('info() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.info;
+            var actual = typeof dwarf.info;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
         
         it('isAlive() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.isAlive;
+            var actual = typeof dwarf.isAlive;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
         
         it('list() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.list;
+            var actual = typeof dwarf.list;
             var expected = "function";
             
             expect(actual).to.equal(expected);        
         });
         
         it('weaponDamage() is a function', function() {
-            var mob = new Mob();
+            var dwarf = new Dwarf();
             
-            var actual = typeof mob.weaponDamage;
+            var actual = typeof dwarf.weaponDamage;
             var expected = "function";
             
             expect(actual).to.equal(expected);            
         });
     });
     
-    describe('Mob constructor test suite', function() {
-        describe('mob creation using defaults', function() {
-            it('default ac is 10', function() {
-                var mob = new Mob();
+    describe('Dwarf constructor test suite', function() {
+        describe('dwarf creation using defaults', function() {
+            it('default ac is 6', function() {
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = data.ac;
-                var expected = 10;
+                var expected = 6;
             
                 expect(actual).to.equal(expected);             
             });
             
-            it('default currentHealth is 1', function() {
-                var mob = new Mob();
+            it('default currentHealth is 8', function() {
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = data.currentHealth;
-                var expected = 1;
+                var expected = 8;
             
                 expect(actual).to.equal(expected);             
             });
             
-            it('default health is 1', function() {
-                var mob = new Mob();
+            it('default health is 8', function() {
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = data.health;
-                var expected = 1;
+                var expected = 8;
             
                 expect(actual).to.equal(expected);             
             });
             
             it('default id is 0', function() {
-                var mob = new Mob();
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = data.id;
                 var expected = 0;
             
                 expect(actual).to.equal(expected);             
             });
             
-            it('default name is noname', function() {
-                var mob = new Mob();
+            it('default name is dwarf', function() {
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = data.name;
-                var expected = 'noname';
+                var expected = 'dwarf';
             
                 expect(actual).to.equal(expected);             
             });
             
-            it('default thac0 is 20', function() {
-                var mob = new Mob();
+            it('default thac0 is 19', function() {
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = data.thac0;
-                var expected = 20;
+                var expected = 19;
             
                 expect(actual).to.equal(expected);             
             });
             
-            it('default weapon is undefined', function() {
-                var mob = new Mob();
+            it('default weapon is sword', function() {
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
-                var actual = typeof data.weapon;
-                var expected = 'undefined';
+                var data = dwarf.getInfo();
+                var actual = data.weapon;
+                var expected = 'sword';
                 
                 expect(actual).to.equal(expected);             
             });
             
             it('default weapon2 undefined', function() {
-                var mob = new Mob();
+                var dwarf = new Dwarf();
                 
-                var data = mob.getInfo();
+                var data = dwarf.getInfo();
                 var actual = typeof data.weapon2;
                 var expected = 'undefined';
             
@@ -174,15 +174,15 @@ describe('Testing Mob: ', function() {
             });
         });
         
-        describe('mob creation using specified values', function() {
+        describe('dwarf creation using specified values', function() {
             describe('for ac', function() {
                 it('ac is specified as -10', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         ac: -10
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.ac;
                     var expected = -10;
             
@@ -190,12 +190,12 @@ describe('Testing Mob: ', function() {
                 });
                 
                 it('ac is specified as 0', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         ac: 0
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.ac;
                     var expected = 0;
             
@@ -203,12 +203,12 @@ describe('Testing Mob: ', function() {
                 });   
                 
                 it('ac is specified as 9', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         ac: 9
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.ac;
                     var expected = 9;
             
@@ -218,12 +218,12 @@ describe('Testing Mob: ', function() {
             
             describe('for health', function() {
                 it('health is specified as 100', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         health: 100
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.health;
                     var expected = 100;
             
@@ -231,12 +231,12 @@ describe('Testing Mob: ', function() {
                 });
                 
                 it('health is specified as 0', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         health: 0
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.health;
                     var expected = 0;
             
@@ -244,12 +244,12 @@ describe('Testing Mob: ', function() {
                 });   
                 
                 it('health is specified as 2', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         health: 2
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.health;
                     var expected = 2;
             
@@ -259,12 +259,12 @@ describe('Testing Mob: ', function() {
             
             describe('for id', function() {
                 it('id is specified as 100', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         id: 100
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.id;
                     var expected = 100;
             
@@ -272,24 +272,24 @@ describe('Testing Mob: ', function() {
                 });
                 
                 it('id is specified as 0', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         id: 0
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.id;
                     var expected = 0;
             
                     expect(actual).to.equal(expected);                  
                 });
                 it('id is specified as 2', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         id: 2
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.id;
                     var expected = 2;
             
@@ -301,12 +301,12 @@ describe('Testing Mob: ', function() {
             describe('for name', function() {
                 var nameval = 'XXXXXXXXXXXXXXXXXXXXXXXXX';
                 it('name is specified as ' + nameval, function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         name: nameval
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.name;
                     var expected = nameval;
             
@@ -316,12 +316,12 @@ describe('Testing Mob: ', function() {
             
             describe('for thac0', function() {
                 it('thac0 is specified as 0', function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         thac0: 0
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.thac0;
                     var expected = 0;
             
@@ -332,12 +332,12 @@ describe('Testing Mob: ', function() {
             describe('for type', function() {
                 var typeval = 'TTTTTTTTTTTTTTTTTTTTTTTTT';
                 it('type is specified as ' + typeval, function() {
-                    mobInfo = {
+                    dwarfInfo = {
                         type: typeval
                     };
-                    var mob = new Mob(mobInfo);
+                    var dwarf = new Dwarf(dwarfInfo);
                 
-                    var data = mob.getInfo();
+                    var data = dwarf.getInfo();
                     var actual = data.type;
                     var expected = typeval;
             
@@ -349,11 +349,11 @@ describe('Testing Mob: ', function() {
     });
     
     describe('list test suite: ', function() {
-        it('list returns array with newly created [Mob], aka return[this]', function() {
-            var mob = new Mob();
+        it('list returns array with newly created [Dwarf], aka return[this]', function() {
+            var dwarf = new Dwarf();
             
-            var actual = mob.list();
-            var expected = [mob];            
+            var actual = dwarf.list();
+            var expected = [dwarf];            
             
             expect(actual).to.deep.equal(expected);
         });

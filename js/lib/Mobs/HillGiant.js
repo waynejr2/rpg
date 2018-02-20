@@ -5,14 +5,17 @@ var Mob = require('./Mob');
 module.exports = (function() {
     
     function HillGiant(info) {
+        if (!info) {
+            info = {};
+        }
         var HillGiantInfo = {
             ac: info.ac === 0 ? info.ac : info.ac  || 4,
-            health: info.health || 37,
-            id: info.id,
-            name: info.name, 
-            thac0: info.thac0 || 12,
-            type: info.type || "HILLGIANT",
-            weapon: info.weapon || "HillGiantClub"
+            health: info.health === 0 ? info.health : info.health || 37,
+            id: info.id === 0 ? info.id : info.id || 0,
+            name: info.name === 0 ? info.name : info.name || "hillgiant", 
+            thac0: info.thac0 === 0 ? info.thac0 : info.thac0 || 12,
+            type: info.type === 0 ? info.type : info.type  || "HILLGIANT",
+            weapon: info.weapon === 0 ? info.weapon : info.weapon || "HillGiantClub"
         };
         Mob.call(this, HillGiantInfo);
     }
