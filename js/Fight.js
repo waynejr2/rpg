@@ -314,6 +314,8 @@ Fight.prototype.doit = function() {
             output += "armorClass: " + armorClass;
             ////console.log(output);
             //Combat.prototype.toHit = function(toHitRoll, attackBonus, weaponAdjustment, thac0, armorClass)
+            
+            
             if (c.toHit(toHitRoll, null, null, thac0, armorClass)) {
                 console.log(attacker.name + " attacks " + defender.name + " and HITs!");
                 var weaponDamage = toHitRoll == 20 ? c.weaponDamage(attacker)* 1 : c.weaponDamage(attacker);
@@ -323,6 +325,8 @@ Fight.prototype.doit = function() {
             } else {
                 console.log(attacker.name + " attacks " + defender.name + " and MISSES");
             };
+            
+            
         }
         for (var i = 0; i < fights.length; i++) {
             if ( !fights[i].isAlive()) {
