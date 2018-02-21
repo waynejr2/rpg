@@ -140,11 +140,13 @@ var damageContainer = require('./DamageContainer');
 
 console.log("we got specials");
 
-function attack(attacker, defender, weapon, damagecontainer) {
+function attack(attacker, defender, source, damagecontainer) {
     console.log("damagecontaier before check " + JSON.stringify(damagecontainer));
-    defender.check(attacker, defender, weapon, damagecontainer);
+    //attacker.check(attacker, defender, source, damagecontainer);
+    defender.check(attacker, defender, source, damagecontainer);
+    //weapon.check(attacker, defender, source, damagecontainer);
     console.log("damagecontaier after check " + JSON.stringify(damagecontainer));
-    console.log("attack weapon: " + weapon.getProperties());
+    console.log("attack source: " + source.getProperties());
     console.log("attack");
 };
 
@@ -203,6 +205,18 @@ var skeleton = (function () {
 })();
 
 
+maceMaker = function() {
+    var properties = ["green star", "blunt"];
+    
+    function getProperties() {
+        return properties;
+    }
+    
+    return {
+        getProperties: getProperties
+    }
+};
+
 swordMaker = function() {
     var properties = ["gold star", "sharp"];
     
@@ -217,12 +231,20 @@ swordMaker = function() {
 
 
 var skeleton = new skeleton();
+
 var ranger = new rangerMaker();
 var sword = new swordMaker();
+var mace = new maceMaker();
 var dc = new damageContainer(12);
+var dc2 = new damageContainer(8);
 
 attack(ranger, skeleton, sword, dc);
 var dmg = dc.calculateDamage();
+console.log("dmg: " + dmg);
+
+
+attack(ranger, skeleton, mace, dc2);
+var dmg = dc2.calculateDamage();
 console.log("dmg: " + dmg);
 
 
@@ -238,7 +260,9 @@ console.log("hello is : " + skeleton.hello());
 //var skeleton = new skeletonMaker();
 var ranger = new rangerMaker();
 var sword = new swordMaker();
+var mace = new maceMaker();
 var dc = new damageContainer(12);
+var dc2 = new damageContainer(8);
 
 console.log("sword props: " + sword.getProperties());
 
@@ -250,6 +274,12 @@ console.log("skeleton: " + skeleton.check());
 attack(ranger, skeleton, sword, dc);
 var dmg = dc.calculateDamage();
 console.log("dmg: " + dmg);
+
+attack(ranger, skeleton, mace, dc);
+var dmg = dc2.calculateDamage();
+console.log("dmg: " + dmg);
+
+
 //attack("", skeleton, mace);
 
 /*
