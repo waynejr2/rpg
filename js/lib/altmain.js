@@ -10,7 +10,7 @@ var WeaponFactory = require('./WeaponFactory');
 //var Sword = require('./Sword');
 
 var hw = function() {
-    console.log("Hello")
+    console.log("Hello");
 };
 
 module.exports = hw;

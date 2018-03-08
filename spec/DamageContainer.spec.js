@@ -122,7 +122,7 @@ describe('Testing DamageContainer', function() {
         it('base 4.5, addpenaltymultipliers of .5 to total 2.25', function() {
             var dc = new DamageContainer(4.5);
             
-            dc.addPenaltyMultiplier(.5);
+            dc.addPenaltyMultiplier(0.5);
             var actual = dc.calculateDamage();
             var expected = 2.25;
             
@@ -132,8 +132,8 @@ describe('Testing DamageContainer', function() {
         it('base 4.5, addpenaltymultipliers of .5, .5 to total 1.125', function() {
             var dc = new DamageContainer(4.5);
             
-            dc.addPenaltyMultiplier(.5);
-            dc.addPenaltyMultiplier(.5);
+            dc.addPenaltyMultiplier(0.5);
+            dc.addPenaltyMultiplier(0.5);
             var actual = dc.calculateDamage();
             var expected = 1.125;
             

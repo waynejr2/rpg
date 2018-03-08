@@ -10,7 +10,7 @@ function mainHelper() {
 //function mainHelper(f, mobFactory) {
     //this.f = f;
     //this.mobFactory = mobFactory;
-};
+}
 
 mainHelper.prototype.doit = function(f, mobFactory) {
         

@@ -8,10 +8,10 @@ function Dice(random) {
     //    return new Dice(width);
     //}
   
-    var random;
+    //var random;
     this.random = random || Math.random;
     
-};
+}
     
 	Dice.prototype.d6 = function() {
 		var max = 6;

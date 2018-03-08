@@ -4,8 +4,8 @@ var expect = require('chai').expect;
 var assert = require('chai').assert;
 
 var dice = function() {
-        ;
-}
+
+};
 
 describe('Testing Combat: ', function() {
     describe('functions are functions: ', function() {

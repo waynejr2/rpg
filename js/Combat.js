@@ -8,7 +8,7 @@ module.exports = Combat;
   	this.dice = dice;
 };*/
 function Combat () {
-};
+}
 
     Combat.prototype.toHit = function(toHitRoll, attackBonus, weaponAdjustment, thac0, armorClass) {
         this.toHitRoll = toHitRoll || 0;
@@ -51,22 +51,16 @@ function Combat () {
         switch(weapon) {
             case "GiantSlayerSword": 
                 return 14.5;
-                break;
             case "HillGiantClub": 
                 return 9;
-                break;
             case "mace": 
                 return 3.5;
-                break;
             case "sword": 
                 return 4.5;
-                break;
             case "magicswordplus3": 
                 return 7.5;
-                break;
             case "magicsword": 
                 return 14.5;
-                break;
         }
     };
  

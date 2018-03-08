@@ -8,7 +8,7 @@ var Sword = require('./Sword');
 function WeaponFactory() {
 
     
-};
+}
 WeaponFactory.prototype.createWeapon = function(weapon) {
     //if (weapon == "GiantSlayerSword") { return new GiantSlayerSword();}
     if (weapon == "HillGiantClub") { return new HillGiantClub();}

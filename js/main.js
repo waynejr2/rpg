@@ -8,8 +8,8 @@ var Fight = require('./Fight');
 var Group = require('./Group');
 var WeaponFactory = require('./lib/Weapons/WeaponFactory');
 
-var hw = function() {
-    console.log("Hello")
+var hw = function () {
+    console.log("Hello");
 };
 
 module.exports = hw;
@@ -26,7 +26,7 @@ module.exports = (function () {
     //toHitRoll, attackBonus, weaponAdjustment, thac0, armorClass
     function attack(toHitRoll) {
         console.log("toHitRoll: " + toHitRoll + " " + c.toHit(toHitRoll)); 
-    };
+    }
     
     
     console.log("my_config");
@@ -122,7 +122,7 @@ module.exports = (function () {
     var aaa = group.list();
     for (var a = 0 ; a < aaa.length; a++ ) {
         console.log("aaa[" + a + "]: " + aaa[a].info());
-    };
+    }
     var b = [];
     b.push(1); b.push(2); b.push(3);
     console.log("b: " + b);

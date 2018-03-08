@@ -6,16 +6,16 @@ var assert = require('chai').assert;
 
 var RandomNumberIsZero = function() {
 	return 0;
-}
+};
 
 var RandomNumberIsPointFive = function() {
 	return 0.5;
-}
+};
 
 var RandomNumberIsOne = function() {
 	return 0.999999999999;
 	//return 1;
-}
+};
 
 describe('Testing Dice: ', function() {
     describe('functions are functions: ', function() {

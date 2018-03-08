@@ -7,7 +7,7 @@ function MagicSword() {
     this.name = "Magic Sword";
     this.damage = 14.5;
     
-};
+}
 MagicSword.prototype = Object.create(Weapon.prototype);
 MagicSword.prototype.constructor = MagicSword;
 

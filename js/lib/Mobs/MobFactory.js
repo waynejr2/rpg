@@ -8,7 +8,7 @@ var Orc = require('./Orc');
 function MobFactory() {
 
     
-};
+}
 MobFactory.prototype.createMob = function(type, info) {
     if (!info) {
         info = {};

@@ -14,7 +14,7 @@ describe('Testing Group: ', function() {
             var group = new Group();
             
             var actual = typeof group.add;        
-            var expected = "function"
+            var expected = "function";
             
             expect(actual).to.equal(expected);
         });
@@ -23,7 +23,7 @@ describe('Testing Group: ', function() {
             var group = new Group();
             
             var actual = typeof group.list;        
-            var expected = "function"
+            var expected = "function";
             
             expect(actual).to.equal(expected);
         });

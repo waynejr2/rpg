@@ -70,7 +70,7 @@ module.exports = (function(){
         result = false;
         if (this.currentHealth > 0) {
             result = true;
-        };
+        }
         return result;
     };
     
@@ -84,5 +84,5 @@ module.exports = (function(){
     };
 
     
-    return Mob
+    return Mob;
 }());

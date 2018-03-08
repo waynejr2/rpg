@@ -7,7 +7,7 @@ function HillGiantClub() {
     this.name = "Hill Giant Club";
     this.damage = 9;
     
-};
+}
 HillGiantClub.prototype = Object.create(Weapon.prototype);
 HillGiantClub.prototype.constructor = HillGiantClub;
 
