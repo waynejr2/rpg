@@ -16,6 +16,38 @@ describe('Testing DamageContainer', function() {
             
             expect(actual).to.equal(expected);           
         });
+        it('instantiate DamageContainer without passing a parameter, calculate should be 0', function() {
+            var dc = new DamageContainer();
+            
+            var actual = dc.calculateDamage();
+            var expected = 0;
+            
+            expect(actual).to.equal(expected);  
+        });
+        it('instantiate DamageContainer with passing a parameter of 0, calculate should be 0', function() {
+            var dc = new DamageContainer(0);
+            
+            var actual = dc.calculateDamage();
+            var expected = 0;
+            
+            expect(actual).to.equal(expected);  
+        });
+        it('instantiate DamageContainer with passing a parameter of 1, calculate should be 1', function() {
+            var dc = new DamageContainer(1);
+            
+            var actual = dc.calculateDamage();
+            var expected = 1;
+            
+            expect(actual).to.equal(expected);  
+        });
+        it('instantiate DamageContainer with passing a parameter of null, calculate should be 0', function() {
+            var dc = new DamageContainer(null);
+            
+            var actual = dc.calculateDamage();
+            var expected = 0;
+            
+            expect(actual).to.equal(expected);  
+        });
     });
     
     describe('addBonusDamage test suite', function() {
@@ -31,7 +63,8 @@ describe('Testing DamageContainer', function() {
         it('add 100 bonus damage', function() {
             var dc = new DamageContainer(12);
             
-            dc.addBonusDamage(100);
+            dc.addBonusDamage(50);
+            dc.addBonusDamage(50);
             var actual = dc.calculateDamage();
             var expected = 112;
             

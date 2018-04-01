@@ -147,22 +147,29 @@ mainHelper.prototype.doit = function(f, mobFactory) {
     
     ////console.log("helper: orc8: " + orc8.info());
         
-    var hillgiantInfo = {
+    var hillgiantInfo33 = {
         id: 33,
         name: "hillgiant33"
     };
-    var hillgiant33 = mobFactory.createMob("hillgiant", hillgiantInfo);
+    var hillgiant33 = mobFactory.createMob("hillgiant", hillgiantInfo33);
     f.addMob(hillgiant33);
+    
+    var hillgiantInfo34 = {
+        id: 34,
+        name: "hillgiant34"
+    };
+    var hillgiant34 = mobFactory.createMob("hillgiant", hillgiantInfo34);
+    f.addMob(hillgiant34);
     
    
     //console.log(f);
     
     console.log(f.getMobs());
     console.log(f.getMobIds());
-    f.setMobTarget(bob, orc3, orc4, orc5, orc6, hillgiant33, orc7, orc8 );
-    f.setMobTarget(steve, orc8, orc7, orc6, hillgiant33, orc5, orc4, orc3);
-    f.setMobTarget(rick, hillgiant33, orc6, orc5, orc4, orc8, orc7, orc3);
-    f.setMobTarget(dorf, hillgiant33, orc6, orc5, orc4, orc8, orc7, orc3 );
+    f.setMobTarget(bob, orc3, hillgiant34, orc4, orc5, orc6, hillgiant33, orc7, orc8 );
+    f.setMobTarget(steve, hillgiant34, orc8, orc7, orc6, hillgiant33, orc5, orc4, orc3);
+    f.setMobTarget(rick, hillgiant33, hillgiant34, orc6, orc5, orc4, orc8, orc7, orc3);
+    f.setMobTarget(dorf, hillgiant33, hillgiant34,  orc6, orc5, orc4, orc8, orc7, orc3 );
     
     f.setMobTarget(orc3, bob, hillgiant33, steve, dorf, rick);
     f.setMobTarget(orc4, dorf, bob, steve, rick, hillgiant33);
@@ -172,6 +179,7 @@ mainHelper.prototype.doit = function(f, mobFactory) {
     f.setMobTarget(orc8, steve, rick, bob, hillgiant33, dorf);
     
     f.setMobTarget(hillgiant33, dorf, orc5, orc4, orc8, orc7, orc3, steve, rick, orc6,  bob);
+    f.setMobTarget(hillgiant34, bob, orc6, orc3, orc8, orc7, orc4, steve, rick, orc5,  dorf);
    
     console.log("orc5: " + f.isInFight(orc5));
     console.log("orc6: " + f.isInFight(orc6));

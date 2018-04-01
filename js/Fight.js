@@ -254,6 +254,14 @@ Fight.prototype.fakeInitiative = function() {
         }
     }
 };
+Fight.prototype.printRound = function(count) {
+    //console.log("FIGHT IS ON");
+    console.log("_________________________________________________________________");
+    console.log();
+    console.log("ROUND NUMBER: " + count);
+    console.log();
+    console.log("_________________________________________________________________");
+};
 Fight.prototype.doit = function() {
     var fight;
     fight = false;
@@ -270,12 +278,15 @@ Fight.prototype.doit = function() {
     while (fight) {
         var fights, attacker, defender;
         
+        this.printRound(count);
         //console.log("FIGHT IS ON");
-    console.log("_________________________________________________________________");
-    console.log();
-    console.log("ROUND NUMBER: " + count);
-    console.log();
-    console.log("_________________________________________________________________");
+        /*    
+        console.log("_________________________________________________________________");
+        console.log();
+        console.log("ROUND NUMBER: " + count);
+        console.log();
+        console.log("_________________________________________________________________");
+        */
         this.fakeInitiative();
         
         fights = this.getMobsInFight();

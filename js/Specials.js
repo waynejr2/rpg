@@ -194,7 +194,7 @@ function attack(attacker, defender, source, damagecontainer) {
     console.log("damagecontainer before check " + JSON.stringify(damagecontainer));
     attacker.check(attacker, defender, source, damagecontainer);
     defender.check(attacker, defender, source, damagecontainer);
-    //source.check(attacker, defender, source, damagecontainer);
+    source.check(attacker, defender, source, damagecontainer);
     console.log("damagecontainer after check " + JSON.stringify(damagecontainer));
     console.log("attack source: " + source.getProperties());
     console.log("attack");
@@ -222,7 +222,7 @@ var checkp = function(attacker, defender, weapon, dc) {
 
 var ranger = (function() {
     
-    this.props = ["ranger"];
+    this.props = ['mob', "human", "ranger"];
     var specialProps = [];
     
     function ranger() {
@@ -244,6 +244,10 @@ var ranger = (function() {
             }            
         });
     }
+    
+    ranger.prototype.getProperties = function() {
+        return props;
+    };
     
     ranger.prototype.check2 = function(attacker, defender, source, dc) {
         checkp.apply(this, arguments);
@@ -271,7 +275,7 @@ var mkskeleton = (function () {
     }
     
     function init() {
-        props = ["undead"];
+        props = ["mob", "undead"];
         specialProps = [];
         health = 8;
         buildSpecialProps();
@@ -298,14 +302,10 @@ var mkskeleton = (function () {
     function rebuildSpecialProps() {
         buildSpecialProps();
     }
-    
-    //function getProperties() {
-    //    return properties;
-    //};
- 
-    
+        
     function privateFun (prefix) {
-        console.log("skeleton privateFun " + specialProps);
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //console.log("skeleton privateFun " + specialProps);
         //return prefix + this._foo;
     }
     
@@ -333,6 +333,174 @@ var mkskeleton = (function () {
     };
 
     return skeleton;
+})();
+
+var mkgiant = (function () {
+    
+    var props;
+    var specialProps;
+    var health;
+    
+    // Constructor
+    function giant () {
+        init();
+    }
+    
+    function init() {
+        props = ["mob", "giant"];
+        specialProps = [];
+        health = 38;
+        buildSpecialProps();
+    }
+
+    function addSpecialProps(value) {
+        specialProps.push(value);
+    }
+    
+    function buildSpecialProps() {
+        specialProps = [];
+    }
+
+    function rebuildSpecialProps() {
+        buildSpecialProps();
+    }
+        
+    function privateFun (prefix) {
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //console.log("skeleton privateFun " + specialProps);
+        //return prefix + this._foo;
+    }
+    
+    giant.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("giant CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+
+    giant.prototype.damage = function(dmg) {
+        health -= dmg;
+    };
+    
+    giant.prototype.getHealth = function() {
+        return health;
+    };
+    
+    giant.prototype.getProperties = function() {
+        return props;
+    };
+    
+    giant.prototype.publicFun = function () {
+        return privateFun.call(this, '>>');
+    };
+
+    return giant;
+})();
+
+var mkmace = (function() {
+    
+    var props;
+    var specialProps;
+    
+    function mace() {
+        init();
+    }
+    
+    function init() {
+        props = ["mace", "green star", "blunt"];
+        specialProps = [];
+        buildSpecialProps();
+    }
+    
+    function addSpecialProps(value) {
+        specialProps.push(value);
+    }
+    
+    function buildSpecialProps() {
+        addSpecialProps(function(attacker, defender, source, dc) {
+            if (defender.getProperties().includes("undead")) {
+                dc.addBonusDamage(7);
+            }            
+        });
+        addSpecialProps(function(attacker, defender, source, dc) {
+            if (attacker.getProperties().includes("ranger")) {
+                dc.addBonusDamage(13);
+            }            
+        });
+    }
+    
+    mace.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("source CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+    
+    mace.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("source CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+    
+    mace.prototype.getProperties = function() {
+        return props;
+    };
+    
+    return mace;
+})();
+
+var mksword = (function() {
+    
+    var props;
+    var specialProps;
+    
+    function sword() {
+        init();
+    }
+    
+    function init() {
+        props = ["sword", "gold star", "sharp"];
+        specialProps = [];
+        buildSpecialProps();
+    }
+    
+    function addSpecialProps(value) {
+        specialProps.push(value);
+    }
+    
+    function buildSpecialProps() {
+        addSpecialProps(function(attacker, defender, source, dc) {
+            if (defender.getProperties().includes("giant")) {
+                dc.addBonusMultiplier(3);
+            }            
+        });
+        addSpecialProps(function(attacker, defender, source, dc) {
+            if (attacker.getProperties().includes("ranger")) {
+                dc.addBonusDamage(13);
+            }            
+        });
+    }
+    
+    sword.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("source CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+    
+    sword.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("source CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+    
+    sword.prototype.getProperties = function() {
+        return props;
+    };
+    
+    return sword;
 })();
 
 
@@ -388,15 +556,23 @@ console.log("skeleton health: " + skeleton.getHealth());
 skeleton.damage(1);
 console.log("skeleton health: " + skeleton.getHealth());
 var skeleton2 = new mkskeleton();
+//console.log(skeleton2.publicFun());
 console.log("skeleton2 health: " + skeleton2.getHealth());
 var skeleton3 = new mkskeleton();
 var skeleton4 = new mkskeleton();
 var ranger = new ranger();
 //var ranger = new rangerMaker();
-var sword = new swordMaker();
-var mace = new maceMaker();
+var sword = new mksword();
+//var sword = new swordMaker();
+var mace = new mkmace();
+console.log(mace.getProperties());
+console.log(typeof mace.check);
+//var mace = new maceMaker();
 var dc = new damageContainer(12);
 var dc2 = new damageContainer(8);
+var dc3 = new damageContainer(12);
+
+var giant1 = new mkgiant();
 
 attack(ranger, skeleton, sword, dc);
 console.log();
@@ -408,6 +584,11 @@ attack(ranger, skeleton, mace, dc2);
 var dmg = dc2.calculateDamage();
 console.log("macedmg: " + dmg);
 
+
+attack(ranger, giant1, sword, dc3);
+console.log();
+var dmg = dc3.calculateDamage();
+console.log("sworddmg: " + dmg);
 
 skeleton.publicFun();      // Returns '>>bar'
 //skeleton

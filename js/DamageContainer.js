@@ -7,10 +7,12 @@ module.exports = (function() {
     
     //do we want to psss in something different or additional?
     //what if we want to log bad numbers to multipliers?  we might want to id the source of those numbers.
-    function DamageContainer(BaseDamage) {
+    function DamageContainer(iBaseDamage) {
         var baseDamage, bonusDamage, bonusMultiplier, penaltyMultiplier;
         
-        this.baseDamage = BaseDamage === 0 ? BaseDamage : BaseDamage || 0;
+        this.baseDamage = iBaseDamage || 0;
+        //this.baseDamage = iBaseDamage === 0 ? 0 : iBaseDamage || 0;
+        //this.baseDamage = iBaseDamage === 0 ? iBaseDamage : iBaseDamage || 0;
         this.bonusDamage = [0];
         this.bonusMultiplier = [1];
         this.penaltyMultiplier = [1];
