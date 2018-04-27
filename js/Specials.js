@@ -591,6 +591,90 @@ var dmg = dc3.calculateDamage();
 console.log("sworddmg: " + dmg);
 
 skeleton.publicFun();      // Returns '>>bar'
+
+
+var mkSpecialProps = (function() {
+    
+    var props;
+    
+    function specialProps() {
+        init();
+    }
+    
+    function init() {
+        props = [];
+    }
+    
+    specialProps.prototype.push = function(value) {
+        props.push(value);
+    };
+    
+    specialProps.prototype.print = function() {
+        console.log(props.toString());
+    };
+    
+    return specialProps;
+})();
+
+var mksword2 = (function() {
+    
+    var props;
+    //var sp = new specialProps();
+    var specialProps = new mkSpecialProps();
+    
+    function sword2() {
+        init();
+    }
+    
+    function init() {
+        props = ["sword", "gold star", "sharp"];
+        //specialProps = [];
+        buildSpecialProps();
+        specialProps.print();
+    }
+    
+    function addSpecialProps(value) {
+        specialProps.push(value);
+    }
+    
+    function buildSpecialProps() {
+        addSpecialProps(function(attacker, defender, source, dc) {
+            if (defender.getProperties().includes("giant")) {
+                dc.addBonusMultiplier(3);
+            }            
+        });
+        addSpecialProps(function(attacker, defender, source, dc) {
+            if (attacker.getProperties().includes("ranger")) {
+                dc.addBonusDamage(13);
+            }            
+        });
+    }
+    
+    sword2.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("source CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+    
+    sword2.prototype.check = function(attacker, defender, source, dc) {        
+        console.log("source CHECK: " + specialProps);
+        for (var i = 0; i < specialProps.length; i++) {
+            specialProps[i](attacker, defender, source, dc);
+        }
+    };
+    
+    sword2.prototype.getProperties = function() {
+        return props;
+    };
+    
+    return sword2;
+})();
+
+var nsword = mksword2();
+
+
+
 //skeleton
 //skeleton.privateFun('>>'); // ReferenceError: private is not defined
 
