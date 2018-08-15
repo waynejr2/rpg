@@ -1,0 +1,17 @@
+Output to HTML
+Composible classes/mobs/skills  addSkill()
+DI -> add more unit testing/mocks
+Object Pool
+Initiative
+Spells
+Fast coding
+world: simple x, y no terrain/walls
+       Mob Movement
+       Ranged attacks, attack range
+triggers
+spawns
+Terrain/walls/etc
+Sounds:  multiple at same time
+Animation:  spell effects...
+       
+     
